@@ -1,13 +1,9 @@
 const { MessageEmbed, Collection } = require("discord.js");
 const Timeout = new Collection();
-const db = require('quick.db');
 const {red, blue, yellow, black, cyan, greenBright, green} = require('chalk');
 module.exports = async (client, message) => {
   
-    let prefix = db.get(`prefix_${message.guild.id}`);
-    if (prefix === null  || prefix === undefined) {
-      prefix = ','
-    }
+    let prefix = ','
   
     if (message.content.startsWith(`<@!${client.user.id}>`) || message.content.startsWith(`<@${client.user.id}>`)) return message.reply({ content: `⚠ **|** My prefix: \`${prefix}\`\n🔮 **|** Learn how to use the bot \`${prefix}tutor\`` });
   
